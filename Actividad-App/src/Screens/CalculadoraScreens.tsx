@@ -6,22 +6,21 @@ import { CustomButton } from '../Components/CustonButton';
 
 
 export const CalculadoraScreens = () => {
-    const [num1, setNum1] = useState('');
-    const [num2, setNum2] = useState('');
-    const [result, setValue] = useState('');
+    const [num1, setNum1] = useState<string>('');
+    const [num2, setNum2] = useState<string>('');
+    const [result, setResult] = useState<string>('');
 
     const Division = () => {
         const numero1 = parseFloat(num1);
         const numero2 = parseFloat(num2);
 
-        const divisionResultado = 
-            numero1 === 0 && numero2 === 0 ? 'INDETERMINACIÓN' :
-            numero2 === 0 ? 'NO EXISTE DIVISIÓN PARA CERO' :
-            (numero1 / numero2).toString();
+        const divisionResultado =
+            (numero1 === 0 && numero2 === 0) ? 'INDETERMINACIÓN' :
+                (numero2 === 0) ? 'NO EXISTE DIVISIÓN PARA CERO' :
+                    (numero1 / numero2).toString();
 
-        setValue(divisionResultado);
+        setResult(divisionResultado);
     };
-
 
     return (
         <View style={styles.container}>
